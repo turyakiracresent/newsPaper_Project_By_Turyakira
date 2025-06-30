@@ -2,5 +2,8 @@
 
 {% block content %}
 <h1> About Page</h1>
+{% for post in post_list %}
+{{ post.text}}
+{% endfor %}
 
 {% endblock content %}

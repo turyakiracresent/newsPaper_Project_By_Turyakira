@@ -5,11 +5,31 @@ from django.shortcuts import render
 # def newsView (request):
 #     return HttpResponse("<h1>Hello, World !</h1>")
 
+# from django.views.generic import TemplateView
+
+# class HomePageView(TemplateView):
+#     template_name = 'index.html'  # Path to your HTML template
+
+# class AboutPageView(TemplateView):
+#     template_name = 'about.html'  # Path to your HTML template
+    
 from django.views.generic import TemplateView
 
-class HomePageView(TemplateView):
-    template_name = 'index.html'  # Path to your HTML template
+from django.views.generic import ListView
 
-class AboutPageView(TemplateView):
-    template_name = 'about.html'  # Path to your HTML template
-    
+from .models import Post    
+
+class HomePageView(ListView):
+    model = Post
+
+    template_name = 'index.html'  # Template File to render this view
+
+
+
+class AboutPageView(ListView):
+    model = Post
+
+    template_name = 'about.html'  # Template File to render this view
+
+
+   
